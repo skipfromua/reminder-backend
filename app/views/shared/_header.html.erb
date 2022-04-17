@@ -21,12 +21,14 @@
           <a class="nav-link" href="#">Hello <%= current_user.email %> </a>
         </li>
         <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-info'%>
         </li>
       <% else %>
-        <h1> Hello stranger </h1>
-        <%= link_to "sign in", new_user_session_path %>
-        <%= link_to "sign up", new_user_registration_path %>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Hello stranger </a>
+        </li>
+        <%= link_to "sign in", new_user_session_path, class: 'btn btn-info' %>
+        <%= link_to "sign up", new_user_registration_path, class: 'btn btn-dark' %>
       <% end %>
     </ul>
   </div>
