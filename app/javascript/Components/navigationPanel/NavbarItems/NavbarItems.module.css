@@ -1,0 +1,31 @@
+.navbarList {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarList > li {
+  padding: 0px 30px 0px 30px;
+  list-style-type: none;
+  margin: 0px 5px 0px 5px;
+}
+
+.navbarList > li.active {
+  border-bottom: 2px solid black;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.navbarList > li > a {
+  color: #000;
+  font-size: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition-duration: 0.4s;
+  text-decoration: none;
+}
+
+.navbarList > li > a:hover {
+  font-size: 30px;
+}

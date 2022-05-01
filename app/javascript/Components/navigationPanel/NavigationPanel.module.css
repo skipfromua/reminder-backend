@@ -1,0 +1,9 @@
+.navbarBackground {
+  height: 100px;
+  background-color: #F8F8F8;
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  align-items: center;
+}
