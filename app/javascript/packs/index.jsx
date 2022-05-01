@@ -1,10 +1,10 @@
 import React from 'react';
-import PrimaryButton from '../Components/UI/buttons/PrimaryButton';
 import { createRoot } from 'react-dom/client';
+import NavigationPanel from '../Components/NavigationPanel/NavigationPanel';
 
 const App = () => {
   return (
-    <PrimaryButton>Hello</PrimaryButton>
+    <NavigationPanel />
   );
 }
 
