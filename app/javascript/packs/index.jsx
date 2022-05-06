@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import NavigationPanel from '../Components/NavigationPanel/NavigationPanel'
+import NavigationPanel from '../Components/NavigationPanel/NavigationPanel';
 
 const App = () => {
   return (
