@@ -30,7 +30,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1.0
-
       - name: Gems Cache
         id: gem-cache
         uses: actions/cache@v2
@@ -41,11 +40,11 @@ jobs:
             ${{ runner.os }}-gem-
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
+
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
+          github_token: ${{ secrets.github_token }}
           rubocop: true
           rubocop_command_prefix: bundle exec
           rubocop_args: -c ./.rubocop.yml
-      - name: Run tests
-        run: rails rspec
