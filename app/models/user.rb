@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   def generate_auth_token
     payload = {
-      id: id,
-      email: email,
+      id:,
+      email:,
       token_type: Auth::TokenCheckHelpers::TOKEN_TYPE
     }
 
