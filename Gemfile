@@ -19,17 +19,21 @@ gem "bootsnap", require: false
 gem "devise"
 gem "jwt"
 
-
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
+  gem 'rubocop-rails'
   gem "web-console"
 end
 
 group :test do
   gem "capybara"
+  gem 'faker'
   gem "selenium-webdriver"
+  gem 'shoulda-matchers'
   gem "webdrivers"
 end
