@@ -25,7 +25,10 @@ jobs:
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+
     steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
       - name: Set up ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -40,7 +43,6 @@ jobs:
             ${{ runner.os }}-gem-
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
-
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
