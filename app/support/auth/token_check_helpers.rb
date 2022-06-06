@@ -17,15 +17,9 @@ module Auth::TokenCheckHelpers
     end
 
     # Based on the user id inside the token payload, find the user.
-    # rubocop:disable Naming/MemoizedInstanceVariableName
     def authenticate_user
-      @current_user ||= if decoded_auth_token[:admin]
-                          warden.set_user(Admin.find(decoded_auth_token[:id]), store: false)
-                        else
-                          warden.set_user(User.find(decoded_auth_token[:id]), store: false)
-                        end
+      @current_user = warden.set_user(User.find(decoded_auth_token[:id]), store: false)
     end
-    # rubocop:enable Naming/MemoizedInstanceVariableName
 
     def decoded_auth_token
       @decoded_auth_token ||= Auth::JwtToken.decode(http_auth_header_content)

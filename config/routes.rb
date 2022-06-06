@@ -10,5 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :rest do
+    namespace :v1 do
+      resources :events
+    end
+  end
+
   root "home#index"
 end
