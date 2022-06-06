@@ -6,7 +6,7 @@ class TodoListPolicy < ApplicationPolicy
     end
 
     def resolve
-      scope.left_outer_joins(event: :user).where(event: { user: user })
+      scope.left_outer_joins(event: :user).where(event: { user: })
     end
 
     private

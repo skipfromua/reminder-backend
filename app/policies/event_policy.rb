@@ -6,7 +6,7 @@ class EventPolicy < ApplicationPolicy
     end
 
     def resolve
-      scope.where(user: user)
+      scope.where(user:)
     end
 
     private
