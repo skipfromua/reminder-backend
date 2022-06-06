@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   namespace :rest do
     namespace :v1 do
-      resources :events
+      resources :events do
+        resources :todo_lists
+      end
     end
   end
 
