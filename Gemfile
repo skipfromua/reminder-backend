@@ -18,6 +18,10 @@ gem "bootsnap", require: false
 # Auth
 gem "devise"
 gem "jwt"
+gem "pundit", "~> 2.2"
+
+# Api
+gem "fast_jsonapi", "~> 1.5"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -38,4 +42,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "pundit", "~> 2.2"
+gem "tod", "~> 3.1"

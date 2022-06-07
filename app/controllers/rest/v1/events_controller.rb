@@ -1,17 +1,17 @@
 class Rest::V1::EventsController < ::Rest::V1::BaseApiController
   def index
-    render json: resource, status: :ok
+    render json: EventSerializer.new(resource), status: :ok
   end
 
   def show
     event = resource.find(params[:id])
-    render json: event
+    render json: EventSerializer.new(event), status: :ok
   end
 
   def create
     event = Event.new(permitted_params)
     if event.save
-      render json: event, status: :created
+      render json: EventSerializer.new(event), status: :created
     else
       render json: { error: 'Unable to create event' }, status: :bad_request
     end
@@ -19,22 +19,18 @@ class Rest::V1::EventsController < ::Rest::V1::BaseApiController
 
   def update
     event = resource.find(params[:id])
-    if event.exists?
-      event.update(permitted_params)
+    if event.update(permitted_params)
       render json: { success: 'Event successfully updated' }, status: :ok
     else
-      render json: { error: 'Event not found' }, status: :bad_request
+      render json: { error: 'Event cannot be updated' }, status: :bad_request
     end
   end
 
   def destroy
     event = resource.find(params[:id])
-    if event.exists?
-      event.destroy
-      render json: { success: 'Event successfully deleted' }, status: :ok
-    else
-      render json: { error: 'Event not found' }, status: :bad_request
-    end
+
+    event.destroy
+    render json: { success: 'Event successfully deleted' }, status: :ok
   end
 
   private
