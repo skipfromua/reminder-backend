@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :events do
         resources :todo_lists
+        resources :notifications
       end
     end
   end
