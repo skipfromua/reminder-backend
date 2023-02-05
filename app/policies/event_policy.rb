@@ -1,8 +1,9 @@
 class EventPolicy < ApplicationPolicy
   class Scope
-    def initialize(user, scope)
+    def initialize(user, scope, params: {})
       @user  = user
       @scope = scope
+      @params = params
     end
 
     def resolve
@@ -11,7 +12,7 @@ class EventPolicy < ApplicationPolicy
 
     private
 
-    attr_reader :user, :scope
+    attr_reader :user, :scope, :params
   end
 
   def index?(_params)
