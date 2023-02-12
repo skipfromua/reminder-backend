@@ -29,8 +29,7 @@ class Rest::V1::EventsController < ::Rest::V1::BaseApiController
   def destroy
     events = resource.where(id: params[:eventIds])
 
-    events.destroy_all
-    render json: { success: 'Event successfully deleted' }, status: :ok
+    render json: EventSerializer.new(events.destroy_all), status: :ok
   end
 
   private
