@@ -9,7 +9,7 @@ class Rest::V1::EventsController < ::Rest::V1::BaseApiController
   end
 
   def create
-    event = Event.new(permitted_params)
+    event = current_user.events.new(permitted_params)
     if event.save
       render json: EventSerializer.new(event), status: :created
     else
@@ -27,9 +27,9 @@ class Rest::V1::EventsController < ::Rest::V1::BaseApiController
   end
 
   def destroy
-    event = resource.find(params[:id])
+    events = resource.where(id: params[:eventIds])
 
-    event.destroy
+    events.destroy_all
     render json: { success: 'Event successfully deleted' }, status: :ok
   end
 

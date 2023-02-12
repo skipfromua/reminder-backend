@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :rest do
     namespace :v1 do
+      delete 'events/delete_many', to: 'events#destroy_many'
       resources :events do
         resources :todo_lists
         resources :notifications
