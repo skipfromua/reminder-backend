@@ -26,16 +26,16 @@ class Rest::V1::NotificationsController < ::Rest::V1::BaseApiController
     end
   end
 
-  def destroy
-    notification = resource.find(params[:id])
 
-    notification.destroy
-    render json: { success: 'Notification successfully deleted' }, status: :ok
+  def destroy
+    notifications = resource.where(id: params[:eventIds])
+
+    render json: NotificationSerializer.new(notifications.destroy_all), status: :ok
   end
 
   private
 
   def permitted_params
-    params.required(:notification).permit(:event_id, :enabled, :start_notifying_days_before, notifying_at: [])
+    params.required(:notification).permit(:event_id, :enabled, :start_notifying_days_before, :notify_at)
   end
 end

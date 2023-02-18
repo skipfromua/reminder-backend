@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_07_140615) do
+ActiveRecord::Schema.define(version: 2023_02_18_145735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2022_06_07_140615) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "enabled", default: true, null: false
     t.integer "start_notifying_days_before", default: 1, null: false
-    t.string "notifying_at", default: [], array: true
+    t.time "notify_at"
     t.index ["event_id"], name: "index_notifications_on_event_id"
   end
 

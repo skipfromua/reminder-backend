@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       resources :events do
         resources :todo_lists
         resources :notifications
+        delete 'todo_lists/delete_many', to: 'todo_lists#destroy_many'
+        delete 'notifications/delete_many', to: 'notifications#destroy_many'
       end
     end
   end

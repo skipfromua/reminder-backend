@@ -27,10 +27,9 @@ class Rest::V1::TodoListsController < ::Rest::V1::BaseApiController
   end
 
   def destroy
-    todo_list = resource.find(params[:id])
+    todo_lists = resource.where(id: params[:eventIds])
 
-    todo_list.destroy
-    render json: { success: 'TodoList successfully deleted' }, status: :ok
+    render json: TodoListSerializer.new(todo_lists.destroy_all), status: :ok
   end
 
   private
