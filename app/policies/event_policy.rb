@@ -19,6 +19,10 @@ class EventPolicy < ApplicationPolicy
     true
   end
 
+  def by_month?(_params)
+    true
+  end
+
   def show?(_params)
     true
   end

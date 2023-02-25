@@ -3,6 +3,11 @@ class Rest::V1::EventsController < ::Rest::V1::BaseApiController
     render json: EventSerializer.new(resource), status: :ok
   end
 
+  def by_month
+    events = resource.by_month(permitted_params[:month])
+    render json: EventSerializer.new(events), status: :ok
+  end
+
   def show
     event = resource.find(params[:id])
     render json: EventSerializer.new(event), status: :ok
@@ -35,6 +40,6 @@ class Rest::V1::EventsController < ::Rest::V1::BaseApiController
   private
 
   def permitted_params
-    params.required(:event).permit(:name, :repeatable, :date, :starts_at, :finished_at, :user_id)
+    params.required(:event).permit(:name, :repeatable, :date, :starts_at, :finished_at, :user_id, :month)
   end
 end
