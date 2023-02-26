@@ -14,7 +14,7 @@ class Rest::V1::EventsController < ::Rest::V1::BaseApiController
   end
 
   def create
-    event = current_user.events.new(permitted_params)
+    event = Events::Build.new(current_user, permitted_params).perform
     if event.save
       render json: EventSerializer.new(event), status: :created
     else
