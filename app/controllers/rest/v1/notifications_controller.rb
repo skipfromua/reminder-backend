@@ -1,4 +1,4 @@
-class Rest::V1::NotificationsController < ::Rest::V1::BaseApiController
+class Rest::V1::NotificationsController < Rest::V1::BaseApiController
   def index
     render json: NotificationSerializer.new(resource), status: :ok
   end
@@ -25,7 +25,6 @@ class Rest::V1::NotificationsController < ::Rest::V1::BaseApiController
       render json: { error: 'Notification cannot be updated' }, status: :bad_request
     end
   end
-
 
   def destroy
     notifications = resource.where(id: params[:eventIds])

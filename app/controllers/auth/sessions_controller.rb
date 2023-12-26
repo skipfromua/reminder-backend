@@ -21,7 +21,7 @@ class Auth::SessionsController < DeviseController
   end
 
   def permitted_params
-    params.permit(:email, :password, session: [:email, :password])
+    params.permit(:email, :password, session: %i[email password])
   end
 
   def render_unprocessable_entity

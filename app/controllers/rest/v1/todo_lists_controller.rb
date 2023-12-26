@@ -1,4 +1,4 @@
-class Rest::V1::TodoListsController < ::Rest::V1::BaseApiController
+class Rest::V1::TodoListsController < Rest::V1::BaseApiController
   def index
     render json: TodoListSerializer.new(resource), status: :ok
   end

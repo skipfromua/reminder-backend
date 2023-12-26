@@ -5,7 +5,7 @@ class Errors::SafeError < StandardError
               :metadata
 
   def initialize(message = nil, original: nil, metadata: {})
-    super message
+    super(message)
 
     @message = message # needed so we can set defaults for it
     @original_exception = original

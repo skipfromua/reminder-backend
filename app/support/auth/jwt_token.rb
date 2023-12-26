@@ -2,7 +2,7 @@
 
 # We could just return the payload as a hash, but having keys with indifferent access
 # is always nice, plus we get an expired? method that will be useful later
-DecodedAuthToken = Class.new HashWithIndifferentAccess
+DecodedAuthToken = Class.new ActiveSupport::HashWithIndifferentAccess
 
 class Auth::JwtToken
   def self.encode(payload, exp = 240.hours.from_now)

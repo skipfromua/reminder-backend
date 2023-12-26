@@ -15,7 +15,7 @@ class NotificationPolicy < ApplicationPolicy
     attr_reader :user, :scope, :params
   end
 
-  def index?(params)
+  def index?(_params)
     true
   end
 

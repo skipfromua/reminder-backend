@@ -70,7 +70,7 @@ RSpec.describe Rest::V1::EventsController, type: :controller do
     end
 
     it 'successfully creates event' do
-      post :create, params: params
+      post(:create, params:)
 
       expect(response).to have_http_status(201)
 
@@ -102,7 +102,7 @@ RSpec.describe Rest::V1::EventsController, type: :controller do
     end
 
     it 'successfully updates event' do
-      patch :update, params: params
+      patch(:update, params:)
 
       expect(response).to have_http_status(200)
 

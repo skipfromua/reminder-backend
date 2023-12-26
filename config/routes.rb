@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       delete 'events/delete_many', to: 'events#destroy_many'
       get 'events/by_month', to: 'events#by_month'
+      resources :subscriptions, only: %i[index create destroy]
       resources :events do
         resources :todo_lists
         resources :notifications

@@ -1,4 +1,4 @@
-class Rest::V1::EventsController < ::Rest::V1::BaseApiController
+class Rest::V1::EventsController < Rest::V1::BaseApiController
   def index
     render json: EventSerializer.new(resource), status: :ok
   end

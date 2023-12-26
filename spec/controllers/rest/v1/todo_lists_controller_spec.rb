@@ -70,7 +70,7 @@ RSpec.describe Rest::V1::TodoListsController, type: :controller do
     end
 
     it 'successfully creates todo_list' do
-      post :create, params: params
+      post(:create, params:)
 
       expect(response).to have_http_status(201)
 
@@ -101,7 +101,7 @@ RSpec.describe Rest::V1::TodoListsController, type: :controller do
     end
 
     it 'successfully updates todo_list' do
-      patch :update, params: params
+      patch(:update, params:)
 
       expect(response).to have_http_status(200)
 

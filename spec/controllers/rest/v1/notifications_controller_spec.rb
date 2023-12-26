@@ -75,7 +75,7 @@ RSpec.describe Rest::V1::NotificationsController, type: :controller do
     end
 
     it 'successfully creates notification' do
-      post :create, params: params
+      post(:create, params:)
 
       expect(response).to have_http_status(201)
 
@@ -109,7 +109,7 @@ RSpec.describe Rest::V1::NotificationsController, type: :controller do
     end
 
     it 'successfully updates notification' do
-      patch :update, params: params
+      patch(:update, params:)
 
       expect(response).to have_http_status(200)
 

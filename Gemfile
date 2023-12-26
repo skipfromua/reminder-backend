@@ -15,6 +15,7 @@ gem "puma", "~> 5.0"
 # Rails extentions & tools
 gem "bootsnap", require: false
 gem 'rack-cors'
+gem 'telegram-bot'
 
 # Auth
 gem "devise"
@@ -30,8 +31,8 @@ gem 'whenever'
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'rspec-rails'
   gem 'faker'
+  gem 'rspec-rails'
 end
 
 group :development do
