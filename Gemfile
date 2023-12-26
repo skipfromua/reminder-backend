@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.0"
+ruby "3.2.2"
 
 gem "rails", "~> 7.0.1"
 
@@ -24,10 +24,14 @@ gem "pundit", "~> 2.2"
 # Api
 gem "fast_jsonapi", "~> 1.5"
 
+# Cron
+gem 'whenever'
+
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :development do
@@ -37,7 +41,6 @@ end
 
 group :test do
   gem "capybara"
-  gem 'faker'
   gem "selenium-webdriver"
   gem 'shoulda-matchers'
   gem "webdrivers"
