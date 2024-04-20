@@ -49,6 +49,9 @@ GEM
     activejob (7.0.8)
       activesupport (= 7.0.8)
       globalid (>= 0.3.6)
+    activejob-uniqueness (0.3.1)
+      activejob (>= 4.2, < 7.2)
+      redlock (>= 2.0, < 3)
     activemodel (7.0.8)
       activesupport (= 7.0.8)
     activerecord (7.0.8)
@@ -85,6 +88,7 @@ GEM
       xpath (~> 3.2)
     chronic (0.10.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
     debug (1.9.1)
@@ -197,6 +201,10 @@ GEM
     rdoc (6.6.2)
       psych (>= 4.0.0)
     redis (4.8.1)
+    redis-client (0.19.1)
+      connection_pool
+    redlock (2.0.6)
+      redis-client (>= 0.14.1, < 1.0.0)
     regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
@@ -283,6 +291,7 @@ PLATFORMS
   arm64-darwin-23
 
 DEPENDENCIES
+  activejob-uniqueness
   bootsnap
   capybara
   debug

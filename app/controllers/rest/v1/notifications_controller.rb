@@ -11,6 +11,7 @@ class Rest::V1::NotificationsController < Rest::V1::BaseApiController
   def create
     notification = Notification.new(permitted_params)
     if notification.save
+      Notifications::Scheduler.new.perform(current_user, notification)
       render json: NotificationSerializer.new(notification), status: :created
     else
       render json: { error: 'Unable to create Notification' }, status: :bad_request

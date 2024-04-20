@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :events
+  has_many :notifications, through: :events
 
   def generate_auth_token
     payload = {

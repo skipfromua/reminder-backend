@@ -16,6 +16,7 @@ gem "puma", "~> 5.0"
 gem "bootsnap", require: false
 gem 'rack-cors'
 gem 'telegram-bot'
+gem 'activejob-uniqueness'
 
 # Auth
 gem "devise"
